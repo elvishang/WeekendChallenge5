@@ -1,6 +1,17 @@
 <div class="row">
   <div class="col-md-12">
     <h1>For Sale</h1>
+    <div class="well col-md-7">
+        <form ng-submit="vm.addListing(vm.newListing)">
+          <label for="cost">Cost: </label>
+          <input type="text" ng-model="vm.newListing.cost" placeholder="Cost" />
+          <label for="sqft">Square Feet: </label>
+          <input type="text" ng-model="vm.newListing.sqft" placeholder="Square Feet" />
+          <label for="city">City: </label>
+          <input type="text" ng-model="vm.newListing.city" placeholder="City" />
+          <button class="btn btn-primary" id="addRentalBtn">Add Listing</button>
+        </form>
+      </div>
     <div class="well cites col-md-4">
       <select class="form-control" ng-change="vm.getByCity(city)" ng-model="city">
         <option value="">Filter by city</option>

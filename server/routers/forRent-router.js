@@ -11,13 +11,26 @@ var RentalSchema = new Schema({
 
 var Rental = mongoose.model('Rental', RentalSchema, 'rentals');
 
+router.post('/', function(req, res){
+    console.log(req.body);
+    var rentalToAdd = new Rental(req.body)
+    rentalToAdd.save(function(err, data){
+        if(err) {
+            console.log(err);
+            res.sendAStatus(500);
+        } else {
+            res.sendStatus(201);
+        }
+    })
+});
+
 router.get('/', function (req, res) {
     var city = req.query.city;
     var query = {};
     if (city) {
         query.city = city;
     }
-    Rental.find(query).sort({ city: 1 }).then(function (rentals) {
+    Rental.find(query).sort({ rent: 1 }).then(function (rentals) {
         res.json(rentals);
     })
         .catch(function (err) {

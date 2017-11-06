@@ -1,7 +1,18 @@
 <div class="row">
   <div class="col-md-12 modal-demo">
     <h1>For Rent</h1>
-    <div class="well cites col-md-4">
+    <div class="well col-md-7">
+      <form ng-submit="vm.addRental(vm.newRentals)">
+        <label for="rent">Rent: </label>
+        <input type="text" ng-model="vm.newRentals.rent" placeholder="Rent" />
+        <label for="sqft">Square Feet: </label>
+        <input type="text" ng-model="vm.newRentals.sqft" placeholder="Square Feet" />
+        <label for="city">City: </label>
+        <input type="text" ng-model="vm.newRentals.city" placeholder="City" />
+        <button class="btn btn-primary" id="addRentalBtn">Add Rental</button>
+      </form>
+    </div>
+    <div class="well cites col-md-6">
       <select class="form-control" ng-change="vm.getByCity(city)" ng-model="city">
         <option value="">Filter by city</option>
         <option ng-repeat="city in vm.cities">{{city}}</option>
@@ -10,9 +21,12 @@
     <div class="col-md-8"></div>
     <div ng-repeat="rental in vm.rentals" class="well col-md-12">
       <img src="../images/Home.jpg" class="img-thumbnail image">
-      <p><strong>Rental Cost: </strong>{{rental.rent | currency}}</p>
-      <p><strong>Sqaure Feet: </strong>{{rental.sqft}}</p>
-      <p><strong>City: </strong>{{rental.city}}</p>
+      <p>
+        <strong>Rental Cost: </strong>{{rental.rent | currency}}</p>
+      <p>
+        <strong>Sqaure Feet: </strong>{{rental.sqft}}</p>
+      <p>
+        <strong>City: </strong>{{rental.city}}</p>
       <button ng-click="vm.deleteRentals(rental)" class="btn btn-danger pull-right">
         <span class="glyphicon glyphicon-trash"></span>
       </button>

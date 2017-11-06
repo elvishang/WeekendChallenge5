@@ -17,7 +17,7 @@ router.get('/', function (req, res) {
     if (city) {
         query.city = city;
     }
-    ForSale.find(query).sort({ city: 1 }).then(function (listings) {
+    ForSale.find(query).sort({ cost: 1 }).then(function (listings) {
         res.json(listings);
     })
         .catch(function (err) {
@@ -40,6 +40,19 @@ router.get('/city', function (req, res) {
         res.json(city);
     });
 })
+
+router.post('/', function(req, res){
+    console.log(req.body);
+    var listingToAdd = new ForSale (req.body)
+    listingToAdd.save(function(err, data){
+        if(err) {
+            console.log(err);
+            res.sendAStatus(500);
+        } else {
+            res.sendStatus(201);
+        }
+    })
+});
 
 router.delete('/:id', function (req, res) {
     var listingId = req.params.id;

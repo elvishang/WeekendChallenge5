@@ -12,3 +12,7 @@
     float: left;
     margin-right: 10px;
 }
+#addRentalBtn {
+    padding: 2px 12px 2px 12px;
+    margin-left: 10px;
+}

@@ -1,5 +1,6 @@
 app.controller('ForSaleController', function (RealEstateService, $uibModal) {
     var vm = this;
+    vm.newListing = {};
 
     getListings();
 
@@ -17,6 +18,13 @@ app.controller('ForSaleController', function (RealEstateService, $uibModal) {
             .then(function (forSale) {
                 vm.forSale = forSale;
             });
+    }
+
+    vm.addListing = function (listing) {
+        console.log(listing);
+        RealEstateService.addListing(listing)
+            .then(getListings)
+            .catch(onError);
     }
 
     //error function (not nessasary but for testing)

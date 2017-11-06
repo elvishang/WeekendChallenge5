@@ -1,11 +1,19 @@
 app.controller('ForRentController', function (RealEstateService, $uibModal) {
     var vm = this;
+    vm.newRental = {};
 
     getRentals();
 
     // deletes current rental data
     vm.deleteRentals = function (rental) {
         RealEstateService.deleteRental(rental._id)
+            .then(getRentals)
+            .catch(onError);
+    }
+
+    vm.addRental = function (rental) {
+        console.log(rental);
+        RealEstateService.addRental(rental)
             .then(getRentals)
             .catch(onError);
     }

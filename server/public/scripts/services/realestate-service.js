@@ -9,7 +9,23 @@ app.service('RealEstateService', function ($http) {
         }).catch(function (error) {
             console.log('Failed');
         });
-    }
+    };
+
+    vm.addRental = function (rentalToAdd) {
+        return $http.post('/forRent', rentalToAdd).then(function (response) {
+            console.log('success', response);
+        }).catch(function (error) {
+            console.log('failure');
+        })
+    };
+
+    vm.addListing = function (listingToAdd) {
+        return $http.post('/forSale', listingToAdd).then(function (response) {
+            console.log('success', response);
+        }).catch(function (error) {
+            console.log('failure');
+        })
+    };
 
     // gets listings data from database
     vm.getForSales = function () {
@@ -19,7 +35,7 @@ app.service('RealEstateService', function ($http) {
         }).catch(function (error) {
             console.log('Failed');
         });
-    }
+    };
 
     // gets cities in listings from database
     vm.getForSalesByCity = function (city) {
@@ -29,7 +45,7 @@ app.service('RealEstateService', function ($http) {
         }).catch(function (error) {
             console.log('Failed');
         });
-    }
+    };
 
     // gets cities in rentals from database
     vm.getRentalByCity = function (city) {
@@ -39,24 +55,24 @@ app.service('RealEstateService', function ($http) {
         }).catch(function (error) {
             console.log('Failed');
         });
-    }
+    };
 
     // updates rental data
     vm.updateRental = function (rental) {
         return $http.put('/forRent/' + rental._id, rental);
-    }
+    };
     // updates listing data
     vm.updateListing = function (listing) {
         return $http.put('/forSale/' + listing._id, listing);
-    }
+    };
     // deletes rental data
     vm.deleteRental = function (rentalId) {
         return $http.delete('/forRent/' + rentalId);
-    }
+    };
     // deletes listing data
     vm.deleteListing = function (listingId) {
         return $http.delete('/forSale/' + listingId);
-    }
+    };
 
     // gets all cities in rental data
     vm.getAllCityForRental = function () {
@@ -64,7 +80,7 @@ app.service('RealEstateService', function ($http) {
             .then(function (response) {
                 return response.data;
             });
-    }
+    };
 
     // gets all cities in listings data
     vm.getAllCityForSale = function () {
@@ -72,5 +88,5 @@ app.service('RealEstateService', function ($http) {
             .then(function (response) {
                 return response.data;
             });
-    }
-})
+        }
+    });
