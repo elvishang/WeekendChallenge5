@@ -1,7 +1,8 @@
-<div class="row">
+<div class="row col-md-12">
   <div class="col-md-12">
     <h1>For Sale</h1>
-    <div class="well col-md-7">
+    <div class="col-md-12">
+      <div class="well col-md-7">
         <form ng-submit="vm.addListing(vm.newListing)">
           <label for="cost">Cost: </label>
           <input type="text" ng-model="vm.newListing.cost" placeholder="Cost" />
@@ -12,24 +13,32 @@
           <button class="btn btn-primary" id="addRentalBtn">Add Listing</button>
         </form>
       </div>
-    <div class="well cites col-md-4">
-      <select class="form-control" ng-change="vm.getByCity(city)" ng-model="city">
-        <option value="">Filter by city</option>
-        <option ng-repeat="city in vm.cities">{{city}}</option>
-      </select>
     </div>
-    <div ng-repeat="forSale in vm.forSale" class="well col-md-12">
-      <img src="../images/Home.jpg" class="img-thumbnail image">
-      <p><strong>Cost: </strong>{{forSale.cost | currency}}</p>
-      <p><strong>Square Feet: </strong>{{forSale.sqft}}</p>
-      <p><strong>City: </strong>{{forSale.city}}</p>
-      <button ng-click="vm.deleteListing(forSale)" class="btn btn-danger pull-right">
-        <span class="glyphicon glyphicon-trash"></span>
-      </button>
-      <button ng-click="vm.open(forSale)" class="btn btn-primary pull-right">
-        <span class="glyphicon glyphicon-pencil"></span>
-      </button>
-      <div class="clearfix"></div>
+    <div class="col-md-12">
+      <div class="well cites col-md-6">
+        <select class="form-control" ng-change="vm.getByCity(city)" ng-model="city">
+          <option value="">Filter by city</option>
+          <option ng-repeat="city in vm.cities">{{city}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div ng-repeat="forSale in vm.forSale" class="well col-md-3">
+        <img src="../images/Home.jpg" class="img-thumbnail image">
+        <p>
+          <strong>Cost: </strong>{{forSale.cost | currency}}</p>
+        <p>
+          <strong>Square Feet: </strong>{{forSale.sqft}}</p>
+        <p>
+          <strong>City: </strong>{{forSale.city}}</p>
+        <button ng-click="vm.deleteListing(forSale)" class="btn btn-danger pull-right">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+        <button ng-click="vm.open(forSale)" class="btn btn-primary pull-right">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+        <div class="clearfix"></div>
+      </div>
     </div>
   </div>
 </div>
