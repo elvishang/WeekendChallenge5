@@ -16,9 +16,11 @@
     <script src="scripts/services/realestate-service.js"></script>
     <title>Real Estates</title>
 </head>
-
+<header>
+        <img src="../images/home-icon.png" class="image-icon">
+        <h1>Real Estates</h1>
+</header>
 <body ng-app="RealEstateApp">
-    <h1>Real Estates</h1>
     <ul class="nav nav-tabs">
         <li role="presentation" ng-class="{active: state === 'sale'}">
             <a href="/#!/forSale" class="text" ng-click="state = 'sale'">For Sale</a>
