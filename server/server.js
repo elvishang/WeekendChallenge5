@@ -12,7 +12,15 @@ app.use(express.static('server/public'));
 app.use('/forRent', forRent)
 app.use('/forSale', forSale)
 
-var databaseUrl = 'mongodb://localhost:27017/realestate';
+var databaseUrl = '';
+
+if (provess.env.MONGODB_URI) {
+    databaseUrl = provess.env.MONGODB_URI
+} else {
+    var databaseUrl = 'mongodb://localhost:27017/realestate';
+}
+
+
 
 mongoose.connection.on('connected', function () {
     console.log('mongoose is connected');
