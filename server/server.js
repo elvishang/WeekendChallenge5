@@ -14,8 +14,8 @@ app.use('/forSale', forSale)
 
 var databaseUrl = '';
 
-if (provess.env.MONGODB_URI) {
-    databaseUrl = provess.env.MONGODB_URI
+if (process.env.MONGODB_URI != undefined) {
+    databaseUrl = process.env.MONGODB_URI;
 } else {
     var databaseUrl = 'mongodb://localhost:27017/realestate';
 }
