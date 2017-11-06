@@ -1,0 +1,14 @@
+.btn + .btn {
+    margin-right: 5px;
+}
+
+.text {
+    font-size: 20px;
+}
+
+.image {
+    width: 140px;
+    height: 140px;
+    float: left;
+    margin-right: 10px;
+}

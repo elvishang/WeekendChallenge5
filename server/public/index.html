@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-bootstrap.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <script src="scripts/controllers/forsale.controller.js"></script>
+    <script src="scripts/controllers/forrent.controller.js"></script>
+    <script src="scripts/services/realestate-service.js"></script>
+    <title>Real Estates</title>
+</head>
+
+<body ng-app="RealEstateApp">
+    <h1>Real Estates</h1>
+    <ul class="nav nav-tabs">
+        <li role="presentation" ng-class="{active: state === 'sale'}">
+            <a href="/#!/forSale" class="text" ng-click="state = 'sale'">For Sale</a>
+        </li>
+        <li role="presentation" ng-class="{active: state === 'rent'}">
+            <a href="/#!/forRent" class="text" ng-click="state = 'rent'">For Rent</a>
+        </li>
+    </ul>
+
+    <main ng-view></main>
+</body>
+
+</html>

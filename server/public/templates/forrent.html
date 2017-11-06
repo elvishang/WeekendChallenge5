@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12 modal-demo">
+    <h1>For Rent</h1>
+    <div class="well cites col-md-4">
+      <select class="form-control" ng-change="vm.getByCity(city)" ng-model="city">
+        <option value="">Filter by city</option>
+        <option ng-repeat="city in vm.cities">{{city}}</option>
+      </select>
+    </div>
+    <div class="col-md-8"></div>
+    <div ng-repeat="rental in vm.rentals" class="well col-md-12">
+      <img src="../images/Home.jpg" class="img-thumbnail image">
+      <p><strong>Rental Cost: </strong>{{rental.rent | currency}}</p>
+      <p><strong>Sqaure Feet: </strong>{{rental.sqft}}</p>
+      <p><strong>City: </strong>{{rental.city}}</p>
+      <button ng-click="vm.deleteRentals(rental)" class="btn btn-danger pull-right">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+      <button ng-click="vm.open(rental)" class="btn btn-primary pull-right">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </button>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Update Rent Info</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <form>
+            <div class="form-group" ng-if="vm.item.type === 'rental'">
+                <label for="rent">Rent</label>
+                <input class="form-control" type="text" ng-model="vm.item.rent">
+            </div>
+            <div class="form-group" ng-if="vm.item.type === 'sale'">
+                <label for="rent">Cost</label>
+                <input class="form-control" type="text" ng-model="vm.item.cost">
+            </div>
+            <div class="form-group">
+                <label for="sqft">Square Feet</label>
+                <input class="form-control" type="text" ng-model="vm.item.sqft">
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input class="form-control" type="text" ng-model="vm.item.city">
+            </div>
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+    </div>
+</div>
